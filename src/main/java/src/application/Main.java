@@ -1,32 +1,41 @@
 package src.application;
 
-import java.sql.Connection;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.Properties;
 
-public class Main {
-	public static String url = "jdbc:postgresql://localhost/inside_threat";
+import src.controllers.*;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+
+	private Stage primaryStage;
+	public BorderPane mainscreen;
 	
-	private static Connection con;
 	
-	public static Properties getProp() throws IOException {
-        Properties props = new Properties();
-        FileInputStream file = new FileInputStream("properties/database.properties");
-        props.load(file);
-        return props;
-    }
-	
-	public static void main(String args[]) throws IOException {
-		Properties prop = getProp();
-		 
-		String db_user = prop.getProperty("db.username");
-		String db_password = prop.getProperty("db.password");
-		System.out.printf("Usuário: " + db_user);
-		System.out.printf("\nPassword: " + db_password);
+	@Override
+	public void start(Stage primaryStage) throws IOException {
+		this.primaryStage = primaryStage;
+		this.primaryStage.setTitle("Inside Threat Project");
+		
+		/*Carrega a cena*/
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(Main.class.getResource("../views/MainScreen.fxml"));
+		mainscreen = (BorderPane) loader.load();
+		
+		/*Mostra a cena*/
+		Scene scene = new Scene(mainscreen);
+		primaryStage.setScene(scene);
+		primaryStage.show();
+
+		MainScreenController controller = loader.getController();
+		controller.setMainApp(this);
 	}
-	
-	public static Connection getConnection() {
-		return con;
+
+	public static void main(String[] args) {
+		launch(args);
 	}
 }
