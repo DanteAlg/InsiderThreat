@@ -2,18 +2,19 @@ package src.application;
 
 import java.io.IOException;
 
-import src.controllers.*;
-
+import src.controllers.ChooseFilesController;
+import src.controllers.MainScreenController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
 	private Stage primaryStage;
-	public BorderPane mainscreen;
+	public AnchorPane firstScreen;
 	
 	
 	@Override
@@ -23,15 +24,15 @@ public class Main extends Application {
 		
 		/*Carrega a cena*/
 		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("../views/MainScreen.fxml"));
-		mainscreen = (BorderPane) loader.load();
+		loader.setLocation(Main.class.getResource("../views/ChooseFiles.fxml"));
+		firstScreen = (AnchorPane) loader.load();
 		
 		/*Mostra a cena*/
-		Scene scene = new Scene(mainscreen);
+		Scene scene = new Scene(firstScreen);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 
-		MainScreenController controller = loader.getController();
+		ChooseFilesController controller = loader.getController();
 		controller.setMainApp(this);
 	}
 

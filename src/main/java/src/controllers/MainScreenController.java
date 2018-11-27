@@ -10,6 +10,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import src.application.Main;
 import javafx.event.ActionEvent;
 
 public class MainScreenController {
@@ -35,13 +36,11 @@ public class MainScreenController {
     @FXML
     private MenuItem menuSobre;
 
-    public void setMainApp(Main main) {
-		this.main = main;
-	}
     
    
     @FXML
     void actionMenuPerfisUsuarios(ActionEvent event) {
+    	
     	try{
     		FXMLLoader loader = new FXMLLoader();
     	   	loader.setLocation(MainScreenController.class.getResource("../vision/ChooseUser.fxml"));
