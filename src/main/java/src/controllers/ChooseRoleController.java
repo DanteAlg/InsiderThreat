@@ -11,7 +11,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
+/**
+ * 
+ * @author Andrécio Costa / Dante Alighieri
+ *
+ */
 public class ChooseRoleController {
 
     @FXML

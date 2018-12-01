@@ -13,7 +13,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 import javafx.event.ActionEvent;
-
+/**
+ * 
+ * @author Andrécio Costa / Dante Alighieri
+ *
+ */
 public class ChooseUserController {
 
     @FXML
@@ -40,7 +44,7 @@ public class ChooseUserController {
     	Stage stage = new Stage();
     	
     	try {
-    		Parent root = FXMLLoader.load(getClass().getResource("../vision/MainScreen.fxml"));
+    		Parent root = FXMLLoader.load(getClass().getResource("../view/MainScreen.fxml"));
     	    Scene previous = new Scene(root);
     		stage.setScene(previous);
     		stage.setTitle("Inside Threat Project");

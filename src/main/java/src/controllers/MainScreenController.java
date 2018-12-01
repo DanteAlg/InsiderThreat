@@ -12,7 +12,11 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import src.application.Main;
 import javafx.event.ActionEvent;
-
+/**
+ * 
+ * @author Andrécio Costa / Dante Alighieri
+ *
+ */
 public class MainScreenController {
 	
 	Main main;
@@ -33,11 +37,8 @@ public class MainScreenController {
     @FXML
     private MenuItem menuCategoria;
 
-    @FXML
-    private MenuItem menuSobre;
-
-    
-   
+      
+    /* Carrega a tela de seleção do usuário (ChooseUser) */
     @FXML
     void actionMenuPerfisUsuarios(ActionEvent event) {
     	
@@ -53,6 +54,7 @@ public class MainScreenController {
        	}
     }
 
+    /* Carrega a tela de ranking dos usuários */
     @FXML
     void actionMenuRankUsuarios(ActionEvent event) {
     	System.out.println("Menu Rank Usuarios ok");
@@ -72,6 +74,7 @@ public class MainScreenController {
     	}
     }
 
+    /* Carrega a tela de seleção do usuário (ChooseRole) */
     @FXML
     void actionMenuCategoria(ActionEvent event) {
     	try{
@@ -84,11 +87,6 @@ public class MainScreenController {
     	catch(IOException e) {
     		e.printStackTrace();
     	}
-    }
-
-    @FXML
-    void actionMenuSobre(ActionEvent event) {
-    	System.out.println("Menu Sobre ok");
     }
 
 }
