@@ -2,7 +2,6 @@ package src.controllers;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
@@ -23,14 +22,19 @@ import javafx.scene.layout.BorderPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+/**
+ * 
+ * @author Andrécio Costa / Dante Alighieri
+ * 
+ */
 public class ChooseFilesController {
 
-	 Main main;
+	Main main;
 	 
-	 private Stage stage = new Stage();
+	private Stage stage = new Stage();
 	 	 
-	 @FXML
-	 private AnchorPane chooseFiles;
+	@FXML
+	private AnchorPane chooseFiles;
 	 
     @FXML
     private TextField txtUsersFiles;
@@ -90,8 +94,10 @@ public class ChooseFilesController {
 		txtLogonFiles.setText(file.toString());		
     }
 
+    /* Carrega os arquivos no banco */
     @FXML
     void actOk(ActionEvent event) {
+    	// Validação dos campos, para verificação do preenchimento dos campos
     	if (validarArquivos()) {
 	    	
 	    	FXMLLoader loader = new FXMLLoader();
@@ -102,18 +108,22 @@ public class ChooseFilesController {
 				Scene dados = new Scene(mainScreen);
 				stage.setScene(dados);
 				stage.setTitle("Inside Threat Project");
+				//carrega os dados no banco
 				carregarUsuarios();
+				// mostra a próxima tela
 				stage.show();
 			}
 			catch(IOException e) {
 				e.printStackTrace();
 			}
 			finally {
+				//encerra a tela atual
 	    		stage = (Stage) btnOk.getScene().getWindow();
 	    		stage.close();
 	    	}
     	}
     	else {
+    		//caso algum campo de endereço dos arquivos não preenchidos
     		lblNotice.setText("Indique o caminho de todos os arquivos!");
     	}
 
@@ -123,6 +133,7 @@ public class ChooseFilesController {
 		this.main = main;
 	}
     
+    /* Realiza a validaão dos campos, atestantando o preencimento dos mesmos */
     private boolean validarArquivos() {
     	if ((txtUsersFiles.getText().equals("")) || (txtDeviceFiles.getText().equals(""))||
       	(txtLogonFiles.getText().equals("")) || (txtDeviceFiles.getText().equals("")))
@@ -131,12 +142,13 @@ public class ChooseFilesController {
     		return true;
     }
     
+    /* Realiza o carregamento dos dados no banco */
     private void carregarUsuarios() {
 		List<String> lista;
 		UserDAO userDao = new UserDAO();
     	try{
 			BufferedReader leitor = new BufferedReader(new FileReader(txtUsersFiles.getText()));
-			leitor.readLine(); //descarta a primeira linha//
+			leitor.readLine(); //descarta a primeira linha
 			String linha;
 			int id = 1;
 			while((linha = leitor.readLine()) != null) {
@@ -145,13 +157,11 @@ public class ChooseFilesController {
 				userDao.save(user);
 				id++;
 			}
-		} catch (IOException e)
-		{
+		}
+    	catch (IOException e){
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-    }
+		}	
     	
-    
-
+    }
 }
