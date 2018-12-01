@@ -10,7 +10,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
+/**
+ * 
+ * @author Andrécio Costa / Dante Alighieri
+ *
+ */
 public class Main extends Application {
 
 	private Stage primaryStage;
