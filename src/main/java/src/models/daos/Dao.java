@@ -1,5 +1,9 @@
 package src.models.daos;
-
+/**
+ * 
+ * @author Andrécio Costa / Dante Alighieri
+ *
+ */
 public interface Dao<T> {
     void save(T t);
      

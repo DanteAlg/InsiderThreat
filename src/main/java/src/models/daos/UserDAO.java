@@ -5,7 +5,11 @@ import src.models.User;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+/**
+ * 
+ * @author Andrécio Costa / Dante Alighieri
+ *
+ */
 public class UserDAO extends Sql implements Dao<User> {
 	
 	public User get(String id) throws SQLException {
@@ -39,4 +43,5 @@ public class UserDAO extends Sql implements Dao<User> {
     public void delete(User u) {
     	this.openConnection();
     }
-}
+    
+ }

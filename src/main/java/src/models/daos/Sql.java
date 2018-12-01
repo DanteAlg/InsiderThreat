@@ -6,7 +6,11 @@ import java.io.IOException;
 import java.sql.*;
 
 import java.util.Properties;
-
+/**
+ * 
+ * @author Andrécio Costa / Dante Alighieri
+ *
+ */
 public class Sql {
 	public String db_url = "jdbc:postgresql://localhost/inside_threat";
 	protected Connection con;
