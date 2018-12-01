@@ -13,7 +13,7 @@ public class User {
 		id = i; name = n; email = e; user_id = ui; role = r;
 	}
 	
-	public int getId() {
+	public int	 getId() {
 		return this.id;
 	}
 	

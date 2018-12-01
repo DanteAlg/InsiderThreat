@@ -43,7 +43,7 @@ public class MainScreenController {
     	
     	try{
     		FXMLLoader loader = new FXMLLoader();
-    	   	loader.setLocation(MainScreenController.class.getResource("../vision/ChooseUser.fxml"));
+    	   	loader.setLocation(MainScreenController.class.getResource("../views/ChooseUser.fxml"));
     	   	AnchorPane chooseUserScreen = (AnchorPane) loader.load();
     	      	 	  	 
     	   	MainScreen.setCenter(chooseUserScreen);    	   	

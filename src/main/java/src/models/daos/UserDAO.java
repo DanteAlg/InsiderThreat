@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class UserDAO extends Sql implements Dao<User> {
 	
-	public User get(int id) throws SQLException {
+	public User get(String id) throws SQLException {
 		this.openConnection();
 		
 		String sql = "SELECT * FROM users WHERE id = " + id;

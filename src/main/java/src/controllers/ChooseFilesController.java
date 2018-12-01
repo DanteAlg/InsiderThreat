@@ -1,9 +1,16 @@
 package src.controllers;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 
 import src.application.Main;
+import src.models.User;
+import src.models.daos.UserDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -88,13 +95,14 @@ public class ChooseFilesController {
     	if (validarArquivos()) {
 	    	
 	    	FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(Main.class.getResource("../vision/MainScreen.fxml"));
+			loader.setLocation(Main.class.getResource("../views/MainScreen.fxml"));
 			try {
 				BorderPane mainScreen = (BorderPane) loader.load();
 			
 				Scene dados = new Scene(mainScreen);
 				stage.setScene(dados);
-				stage.setTitle("Reserva Já!");
+				stage.setTitle("Inside Threat Project");
+				carregarUsuarios();
 				stage.show();
 			}
 			catch(IOException e) {
@@ -122,6 +130,28 @@ public class ChooseFilesController {
     	else
     		return true;
     }
+    
+    private void carregarUsuarios() {
+		List<String> lista;
+		UserDAO userDao = new UserDAO();
+    	try{
+			BufferedReader leitor = new BufferedReader(new FileReader(txtUsersFiles.getText()));
+			leitor.readLine(); //descarta a primeira linha//
+			String linha;
+			int id = 1;
+			while((linha = leitor.readLine()) != null) {
+				lista = Arrays.asList(linha.split(","));
+				User user = new User(id,lista.get(0),lista.get(3),lista.get(1),lista.get(4));
+				userDao.save(user);
+				id++;
+			}
+		} catch (IOException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    	
     
 
 }
