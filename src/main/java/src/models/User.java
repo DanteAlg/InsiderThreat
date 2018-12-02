@@ -6,11 +6,11 @@ public class User {
 	private int id;
 	private String name;
 	private String email;
-	private String user_id;
+	private String userId;
 	private String role;
 	
 	public User (int i, String n, String e, String ui, String r) {
-		id = i; name = n; email = e; user_id = ui; role = r;
+		id = i; name = n; email = e; userId = ui; role = r;
 	}
 	
 	public int	 getId() {
@@ -18,7 +18,7 @@ public class User {
 	}
 	
 	public String getUserId() {
-		return "DTAA/" + this.user_id;
+		return "DTAA/" + this.userId;
 	}
 	
 	public String getRole() {

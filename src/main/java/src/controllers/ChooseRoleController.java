@@ -36,7 +36,7 @@ public class ChooseRoleController {
     	Stage stage = new Stage();
     	
     	try {
-    		Parent root = FXMLLoader.load(getClass().getResource("../vision/MainScreen.fxml"));
+    		Parent root = FXMLLoader.load(getClass().getResource("../views/MainScreen.fxml"));
     	    Scene previous = new Scene(root);
     		stage.setScene(previous);
     		stage.setTitle("Inside Threat Project");

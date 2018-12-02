@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
 	private Stage primaryStage;
-	public AnchorPane firstScreen;
+	private AnchorPane firstScreen;
 	
 	
 	@Override

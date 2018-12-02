@@ -94,7 +94,7 @@ public class ChooseFilesController {
 		txtLogonFiles.setText(file.toString());		
     }
 
-    /* Carrega os arquivos no banco */
+    //Carrega os arquivos no banco 
     @FXML
     void actOk(ActionEvent event) {
     	// Validação dos campos, para verificação do preenchimento dos campos
@@ -128,7 +128,10 @@ public class ChooseFilesController {
     	}
 
     }
-
+    
+    /*
+     * Define o aplicativo de controle
+     */
     public void setMainApp(Main main) {
 		this.main = main;
 	}

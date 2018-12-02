@@ -12,7 +12,7 @@ import java.util.Properties;
  *
  */
 public class Sql {
-	public String db_url = "jdbc:postgresql://localhost/inside_threat";
+	public String dbUrl = "jdbc:postgresql://localhost/inside_threat";
 	protected Connection con;
 
 	protected void openConnection() {
@@ -28,7 +28,7 @@ public class Sql {
 		
 		try 
 		{
-			con = DriverManager.getConnection(db_url, db_user, db_password);
+			con = DriverManager.getConnection(dbUrl, db_user, db_password);
 			connectLog();
 		}
 		catch (Exception except) {

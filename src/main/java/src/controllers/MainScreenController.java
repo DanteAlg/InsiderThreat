@@ -19,15 +19,15 @@ import javafx.event.ActionEvent;
  */
 public class MainScreenController {
 	
-	Main main;
+	private Main main;
 	private Stage newStage = new Stage();
 
     @FXML
-    private BorderPane MainScreen;
+    private BorderPane mainScreen;
 
     @FXML
     private MenuItem menuPerfisUsuarios;
-
+    
     @FXML
     private MenuItem menuRankUsuarios;
 
@@ -47,7 +47,7 @@ public class MainScreenController {
     	   	loader.setLocation(MainScreenController.class.getResource("../views/ChooseUser.fxml"));
     	   	AnchorPane chooseUserScreen = (AnchorPane) loader.load();
     	      	 	  	 
-    	   	MainScreen.setCenter(chooseUserScreen);    	   	
+    	   	mainScreen.setCenter(chooseUserScreen);    	   	
     	}
     	catch(IOException e) {
     		e.printStackTrace();
@@ -64,10 +64,10 @@ public class MainScreenController {
     void actionMenuUsuario(ActionEvent event) {
     	try{
     		FXMLLoader loader = new FXMLLoader();
-    	   	loader.setLocation(MainScreenController.class.getResource("../vision/ChooseUser.fxml"));
+    	   	loader.setLocation(MainScreenController.class.getResource("../views/ChooseUser.fxml"));
     	   	AnchorPane chooseUserScreen = (AnchorPane) loader.load();
     	      	 	  	 
-    	   	MainScreen.setCenter(chooseUserScreen);    	   	
+    	   	mainScreen.setCenter(chooseUserScreen);    	   	
     	}
     	catch(IOException e) {
     		e.printStackTrace();
@@ -79,10 +79,10 @@ public class MainScreenController {
     void actionMenuCategoria(ActionEvent event) {
     	try{
     		FXMLLoader loader = new FXMLLoader();
-    	   	loader.setLocation(MainScreenController.class.getResource("../vision/ChooseRole.fxml"));
+    	   	loader.setLocation(MainScreenController.class.getResource("../views/ChooseRole.fxml"));
     	   	AnchorPane chooseUserScreen = (AnchorPane) loader.load();
     	      	 	  	 
-    	   	MainScreen.setCenter(chooseUserScreen);    	   	
+    	   	mainScreen.setCenter(chooseUserScreen);    	   	
     	}
     	catch(IOException e) {
     		e.printStackTrace();

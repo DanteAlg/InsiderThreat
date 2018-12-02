@@ -21,7 +21,7 @@ import javafx.event.ActionEvent;
 public class ChooseUserController {
 
     @FXML
-    private AnchorPane ChooseUser;
+    private AnchorPane chooseUser;
     
     @FXML
     private TextField txtName;
@@ -44,7 +44,7 @@ public class ChooseUserController {
     	Stage stage = new Stage();
     	
     	try {
-    		Parent root = FXMLLoader.load(getClass().getResource("../view/MainScreen.fxml"));
+    		Parent root = FXMLLoader.load(getClass().getResource("../views/MainScreen.fxml"));
     	    Scene previous = new Scene(root);
     		stage.setScene(previous);
     		stage.setTitle("Inside Threat Project");
