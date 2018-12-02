@@ -119,10 +119,11 @@ public class ChooseFilesController {
 				stage.setScene(dados);
 				stage.setTitle("Inside Threat Project");
 				//carrega os dados no banco
-				carregarUsuarios();
-				carregarDevices();
-				carregarHttp();
-				carregarLogon();
+				//carregarUsuarios();
+				//carregarDevices();
+				//carregarHttp();
+				//carregarLogon();
+							
 				// mostra a próxima tela
 				stage.show();
 			}
