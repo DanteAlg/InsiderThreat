@@ -54,7 +54,7 @@ public class UserDAO extends Sql implements Dao<User> {
 		}
 		else  {
 			
-			sql = "INSERT INTO users VALUES" +
+			sql = "INSERT INTO users " +
 				  "(name, email, role, user_id) VALUES " +
 				  "('" + u.getName() + "', '" + u.getEmail() + "', '"+ u.getEmail() + "', '" + u.getUserId() + "')";
 		}
