@@ -9,7 +9,13 @@ import java.util.Arrays;
 import java.util.List;
 
 import src.application.Main;
+import src.models.Device;
+import src.models.Http;
+import src.models.Logon;
 import src.models.User;
+import src.models.daos.DeviceDAO;
+import src.models.daos.HttpDAO;
+import src.models.daos.LogonDAO;
 import src.models.daos.UserDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -111,6 +117,9 @@ public class ChooseFilesController {
 				stage.setTitle("Inside Threat Project");
 				//carrega os dados no banco
 				carregarUsuarios();
+				carregarDevices();
+				carregarHttp();
+				carregarLogon();
 				// mostra a próxima tela
 				stage.show();
 			}
@@ -146,7 +155,7 @@ public class ChooseFilesController {
     		return true;
     }
     
-    /* Realiza o carregamento dos dados no banco */
+    /* Realiza o carregamento dos usuarios no banco */
     private void carregarUsuarios() {
 		List<String> lista;
 		UserDAO userDao = new UserDAO();
@@ -159,6 +168,83 @@ public class ChooseFilesController {
 				User user = new User(lista.get(1), lista.get(0),lista.get(3),lista.get(4));
 				try { userDao.save(user); }
 				catch (SQLException ex) { System.out.println(ex.getMessage()); }
+			}
+		}
+    	catch (IOException e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+    }
+    
+    /* Realiza o carregamento dos devices no banco */
+    private void carregarDevices() {
+    	List<String> lista;
+		DeviceDAO deviceDao = new DeviceDAO();
+    	try{
+			BufferedReader leitor = new BufferedReader(new FileReader(txtDeviceFiles.getText()));
+			leitor.readLine(); //descarta a primeira linha
+			String linha;
+			while((linha = leitor.readLine()) != null) {
+				lista = Arrays.asList(linha.split(","));
+				Device device = new Device(lista.get(0), lista.get(1),lista.get(2).substring(5,lista.get(2).length()),lista.get(3),lista.get(4));
+				try { 
+					deviceDao.save(device);
+				}
+				catch (SQLException ex) { 
+					System.out.println(ex.getMessage());
+				}
+			}
+		}
+    	catch (IOException e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+    	
+    }
+    
+    /* Realiza o carregamento dos https no banco */
+    private void carregarHttp() {
+    	List<String> lista;
+		HttpDAO httpDao = new HttpDAO();
+    	try{
+			BufferedReader leitor = new BufferedReader(new FileReader(txtHttpFiles.getText()));
+			leitor.readLine(); //descarta a primeira linha
+			String linha;
+			while((linha = leitor.readLine()) != null) {
+				lista = Arrays.asList(linha.split(","));
+				Http http = new Http(lista.get(0), lista.get(1),lista.get(2).substring(5,lista.get(2).length()),lista.get(3),lista.get(4));
+				try { 
+					httpDao.save(http);
+				}
+				catch (SQLException ex) { 
+					System.out.println(ex.getMessage());
+				}
+			}
+		}
+    	catch (IOException e){
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}	
+    	
+    }
+    
+    /* Realiza o carregamento dos logons no banco */
+    private void carregarLogon() {
+    	List<String> lista;
+		LogonDAO httpDao = new LogonDAO();
+    	try{
+			BufferedReader leitor = new BufferedReader(new FileReader(txtLogonFiles.getText()));
+			leitor.readLine(); //descarta a primeira linha
+			String linha;
+			while((linha = leitor.readLine()) != null) {
+				lista = Arrays.asList(linha.split(","));
+				Logon logon = new Logon(lista.get(0), lista.get(1),lista.get(2).substring(5,lista.get(2).length()),lista.get(3),lista.get(4));
+				try { 
+					httpDao.save(logon);
+				}
+				catch (SQLException ex) { 
+					System.out.println(ex.getMessage());
+				}
 			}
 		}
     	catch (IOException e){
