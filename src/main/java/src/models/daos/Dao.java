@@ -3,7 +3,7 @@ package src.models.daos;
 /**
  * 
  * @author Andrecio Costa / Dante Alighieri
- *
+ * @details Interface
  */
 
 import java.sql.SQLException;
