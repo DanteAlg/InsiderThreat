@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -153,12 +154,11 @@ public class ChooseFilesController {
 			BufferedReader leitor = new BufferedReader(new FileReader(txtUsersFiles.getText()));
 			leitor.readLine(); //descarta a primeira linha
 			String linha;
-			int id = 1;
 			while((linha = leitor.readLine()) != null) {
 				lista = Arrays.asList(linha.split(","));
-				User user = new User(id,lista.get(0),lista.get(3),lista.get(1),lista.get(4));
-				userDao.save(user);
-				id++;
+				User user = new User(lista.get(1), lista.get(0),lista.get(3),lista.get(4));
+				try { userDao.save(user); }
+				catch (SQLException ex) { System.out.println(ex.getMessage()); }
 			}
 		}
     	catch (IOException e){
