@@ -1,5 +1,9 @@
 package src.models;
-
+/**
+ * 
+ * @author Andrecio Costa / Dante Alighieri
+ *
+ */
 import java.util.ArrayList;
 
 public class Node {

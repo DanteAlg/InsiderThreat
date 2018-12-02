@@ -5,12 +5,10 @@ import java.io.IOException;
 import src.application.Main;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import src.application.Main;
 import javafx.event.ActionEvent;
 /**
  * 
@@ -38,7 +36,10 @@ public class MainScreenController {
     private MenuItem menuCategoria;
 
       
-    /* Carrega a tela de seleção do usuário (ChooseUser) */
+    /**
+     *  Carrega a tela de seleção do usuário (ChooseUser)
+     * @param event
+     */
     @FXML
     void actionMenuPerfisUsuarios(ActionEvent event) {
     	
@@ -54,12 +55,19 @@ public class MainScreenController {
        	}
     }
 
-    /* Carrega a tela de ranking dos usuários */
+    /**
+     *  Carrega a tela de ranking dos usuarios 
+     * @param event
+     */
     @FXML
     void actionMenuRankUsuarios(ActionEvent event) {
     	System.out.println("Menu Rank Usuarios ok");
     }
 
+    /**
+     *  Carrega a tela de escolha dos usuarios 
+     * @param event
+     */
     @FXML
     void actionMenuUsuario(ActionEvent event) {
     	try{
@@ -74,7 +82,10 @@ public class MainScreenController {
     	}
     }
 
-    /* Carrega a tela de seleção do usuário (ChooseRole) */
+    /**
+     *  Carrega a tela de seleção de categoria
+     * @param event
+     */
     @FXML
     void actionMenuCategoria(ActionEvent event) {
     	try{

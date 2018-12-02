@@ -13,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 /**
  * 
- * @author Andrécio Costa / Dante Alighieri
+ * @author Andrecio Costa / Dante Alighieri
  *
  */
 public class ChooseRoleController {
@@ -30,7 +30,10 @@ public class ChooseRoleController {
     @FXML
     private TextField txtRole;
 
-    /* Retorna a tela anterior, fechando a atual*/
+    /**
+     * Retorna a tela anterior, fechando a atual
+     * @param event
+     */
     @FXML
     void actionBtnCancelar(ActionEvent event) {
     	Stage stage = new Stage();
@@ -51,7 +54,10 @@ public class ChooseRoleController {
     	}
     }
 
-    /* Pesquisa a existência do usuário, se não houver avisa a não existência desse no cadastro */
+    /**
+     * Pesquisa a existência do usuário, se não houver avisa a não existência desse no cadastro 
+     * @param event
+     */
     @FXML
     void actionBtnOk(ActionEvent event) {
     	txtRole.setText("");

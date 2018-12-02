@@ -1,5 +1,9 @@
 package src.models;
-
+/**
+ * 
+ * @author Andrecio Costa / Dante Alighieri
+ *
+ */
 import src.models.Activity;
 
 public class Device extends Activity {

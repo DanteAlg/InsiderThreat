@@ -1,5 +1,9 @@
 package src.models;
-
+/**
+ * 
+ * @author Andrecio Costa / Dante Alighieri
+ *
+ */
 public class User {
 	// Attributes
 	

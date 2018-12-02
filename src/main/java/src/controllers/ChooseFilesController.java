@@ -31,7 +31,7 @@ import javafx.stage.Stage;
 
 /**
  * 
- * @author Andrécio Costa / Dante Alighieri
+ * @author Andrecio Costa / Dante Alighieri
  * 
  */
 public class ChooseFilesController {
@@ -101,7 +101,10 @@ public class ChooseFilesController {
 		txtLogonFiles.setText(file.toString());		
     }
 
-    //Carrega os arquivos no banco 
+    /**
+     * Carrega os arquivos no banco 
+     * @param event
+     */
     @FXML
     void actOk(ActionEvent event) {
     	// Validação dos campos, para verificação do preenchimento dos campos
@@ -139,14 +142,19 @@ public class ChooseFilesController {
 
     }
     
-    /*
-     * Define o aplicativo de controle
-     */
+     /**
+      * Define o aplicativo de controle
+      * @param main
+      */
+     
     public void setMainApp(Main main) {
 		this.main = main;
 	}
     
-    /* Realiza a validaão dos campos, atestantando o preencimento dos mesmos */
+    /**
+     *  Realiza a validaão dos campos, atestantando o preencimento dos mesmos
+     * @return
+     */
     private boolean validarArquivos() {
     	if ((txtUsersFiles.getText().equals("")) || (txtDeviceFiles.getText().equals(""))||
       	(txtLogonFiles.getText().equals("")) || (txtDeviceFiles.getText().equals("")))
@@ -155,7 +163,10 @@ public class ChooseFilesController {
     		return true;
     }
     
-    /* Realiza o carregamento dos usuarios no banco */
+    /**
+     * Realiza o carregamento dos usuarios no banco
+     *
+     */
     private void carregarUsuarios() {
 		List<String> lista;
 		UserDAO userDao = new UserDAO();
@@ -166,7 +177,9 @@ public class ChooseFilesController {
 			while((linha = leitor.readLine()) != null) {
 				lista = Arrays.asList(linha.split(","));
 				User user = new User(lista.get(1), lista.get(0),lista.get(3),lista.get(4));
-				try { userDao.save(user); }
+				try { 
+					userDao.save(user);
+				}
 				catch (SQLException ex) { System.out.println(ex.getMessage()); }
 			}
 		}
@@ -176,7 +189,10 @@ public class ChooseFilesController {
 		}	
     }
     
-    /* Realiza o carregamento dos devices no banco */
+    /**
+     * Realiza o carregamento dos devices no banco
+     *
+     */
     private void carregarDevices() {
     	List<String> lista;
 		DeviceDAO deviceDao = new DeviceDAO();
@@ -202,7 +218,10 @@ public class ChooseFilesController {
     	
     }
     
-    /* Realiza o carregamento dos https no banco */
+    /**
+     *  Realiza o carregamento dos https no banco
+     *  
+     */
     private void carregarHttp() {
     	List<String> lista;
 		HttpDAO httpDao = new HttpDAO();
@@ -228,7 +247,9 @@ public class ChooseFilesController {
     	
     }
     
-    /* Realiza o carregamento dos logons no banco */
+    /**
+     *  Realiza o carregamento dos logons no banco 
+     */
     private void carregarLogon() {
     	List<String> lista;
 		LogonDAO httpDao = new LogonDAO();

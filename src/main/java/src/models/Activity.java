@@ -1,5 +1,9 @@
 package src.models;
-
+/**
+ * 
+ * @author Andrecio Costa / Dante Alighieri
+ *
+ */
 public class Activity {
 	protected int id;
 	protected String activityId;

@@ -1,5 +1,9 @@
 package src.models.daos;
-
+/**
+ * 
+ * @author Andrecio Costa / Dante Alighieri
+ *
+ */
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -50,7 +54,10 @@ public class LogonDAO extends Sql implements Dao<Logon> {
 
 		return user;
 	}
-
+	/** 
+	 * Salva as atividades de logon no banco
+	 * @param d
+	 */
 	public void save(Logon d) throws SQLException {
 		this.openConnection();
 
@@ -81,10 +88,18 @@ public class LogonDAO extends Sql implements Dao<Logon> {
 		pst.executeUpdate();
 	}
 
+	/** 
+	 * Atualiza as atividades de logon no banco de acordo com os dados informado no parametrp params
+	 * @param d, params
+	 */
 	public void update(Logon d, String[] params) {
 		this.openConnection();
     }
-     
+    
+	/** 
+	 * Deleta as atividades de logon no banco
+	 * @param d
+	 */
     public void delete(Logon d) {
     	this.openConnection();
     }

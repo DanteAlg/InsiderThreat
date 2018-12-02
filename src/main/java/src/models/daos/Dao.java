@@ -2,7 +2,7 @@ package src.models.daos;
 
 /**
  * 
- * @author Andrécio Costa / Dante Alighieri
+ * @author Andrecio Costa / Dante Alighieri
  *
  */
 

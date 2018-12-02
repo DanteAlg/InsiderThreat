@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import src.models.Node;
 /**
  * 
- * @author Andrécio Costa / Dante Alighieri
+ * @author Andrecio Costa / Dante Alighieri
  *
  */
 public class Main extends Application {
@@ -26,9 +26,15 @@ public class Main extends Application {
 	private Stage primaryStage;
 	private AnchorPane firstScreen;
 	
+	/*
+	 * Executa a aplicacao carregando e mostrando a cena;(non-Javadoc)
+	 * @see javafx.application.Application#start(javafx.stage.Stage)
+	 */
+	
 	
 	@Override
 	public void start(Stage primaryStage) throws IOException {
+		
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Inside Threat Project");
 		
