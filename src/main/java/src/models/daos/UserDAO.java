@@ -72,5 +72,4 @@ public class UserDAO extends Sql implements Dao<User> {
     public void delete(User u) {
     	this.openConnection();
     }
-
 }
