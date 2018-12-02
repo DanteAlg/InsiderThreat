@@ -3,10 +3,31 @@ package src.models.daos;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import src.models.Http;
 
 public class HttpDAO extends Sql implements Dao<Http> {
+	public ArrayList<Http> betweenDates(String start_time, String end_time) throws SQLException {
+		this.openConnection();
+		
+		ArrayList<Http> https = new ArrayList<Http>();
+		String sql = "SELECT * FROM http WHERE (date >= '" + start_time + "') AND (date <= '" + end_time + "');";
+
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+
+		pst = this.con.prepareStatement(sql);
+		rs = pst.executeQuery();
+
+		while (rs.next()) {
+			https.add(new Http(rs.getInt("id"), rs.getString("http_id"), rs.getString("date"),
+					rs.getString("user_id"), rs.getString("pc_id"), rs.getString("activity")));
+		}
+		
+		return https;
+	}
+	
 	public Http get(String id) throws SQLException {
 		this.openConnection();
 

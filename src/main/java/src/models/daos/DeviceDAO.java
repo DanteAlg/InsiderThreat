@@ -1,12 +1,36 @@
 package src.models.daos;
 
 import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import java.util.ArrayList;
 
 import src.models.Device;
 
 public class DeviceDAO extends Sql implements Dao<Device> {
+	public ArrayList<Device> betweenDates(String start_time, String end_time) throws SQLException {
+		this.openConnection();
+		
+		ArrayList<Device> devices = new ArrayList<Device>();
+		String sql = "SELECT * FROM devices WHERE (date >= '" + start_time + "') AND (date <= '" + end_time + "');";
+
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+
+		System.out.println(sql);
+		pst = this.con.prepareStatement(sql);
+		rs = pst.executeQuery();
+
+		while (rs.next()) {
+			devices.add(new Device(rs.getInt("id"), rs.getString("device_id"), rs.getString("date"),
+					rs.getString("user_id"), rs.getString("pc_id"), rs.getString("activity")));
+		}
+		
+		return devices;
+	}
+	
 	public Device get(String id) throws SQLException {
 		this.openConnection();
 

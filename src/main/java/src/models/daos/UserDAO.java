@@ -11,6 +11,28 @@ import java.sql.SQLException;
  *
  */
 public class UserDAO extends Sql implements Dao<User> {
+	public User getByUserId(String id) throws SQLException {
+		this.openConnection();
+
+		String sql = "SELECT * FROM users WHERE user_id = " + id;
+		
+		System.out.println(sql);
+
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+
+		pst = this.con.prepareStatement(sql);
+		rs = pst.executeQuery();
+
+		User user = null;
+
+		while (rs.next()) {
+			user = new User(rs.getInt("id"), rs.getString("name"), rs.getString("email"), rs.getString("user_id"),
+					rs.getString("role"));
+		}
+
+		return user;
+	}
 
 	public User get(String id) throws SQLException {
 		this.openConnection();

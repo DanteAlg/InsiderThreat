@@ -3,10 +3,31 @@ package src.models.daos;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import src.models.Logon;
 
 public class LogonDAO extends Sql implements Dao<Logon> {
+	public ArrayList<Logon> betweenDates(String start_time, String end_time) throws SQLException {
+		this.openConnection();
+		
+		ArrayList<Logon> logons = new ArrayList<Logon>();
+		String sql = "SELECT * FROM logon WHERE (date >= '" + start_time + "') AND (date <= '" + end_time + "');";
+
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+
+		pst = this.con.prepareStatement(sql);
+		rs = pst.executeQuery();
+
+		while (rs.next()) {
+			logons.add(new Logon(rs.getInt("id"), rs.getString("logon_id"), rs.getString("date"),
+					rs.getString("user_id"), rs.getString("pc_id"), rs.getString("activity")));
+		}
+		
+		return logons;
+	}
+	
 	public Logon get(String id) throws SQLException {
 		this.openConnection();
 
