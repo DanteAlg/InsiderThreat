@@ -57,7 +57,10 @@ public class DeviceDAO extends Sql implements Dao<Device> {
 
 		return user;
 	}
-
+	/** 
+	 * Salva as atividades de device no banco
+	 * @param d
+	 */
 	public void save(Device d) throws SQLException {
 		this.openConnection();
 
@@ -88,10 +91,18 @@ public class DeviceDAO extends Sql implements Dao<Device> {
 		pst.executeUpdate();
 	}
 
+	/** 
+	 * Atualiza as atividades de device no banco de acordo com os dados informado no parametrp params
+	 * @param d, params
+	 */
 	public void update(Device d, String[] params) {
 		this.openConnection();
     }
-     
+    
+	/** 
+	 * Deleta as atividades de device no banco
+	 * @param d
+	 */
     public void delete(Device d) {
     	this.openConnection();
     }

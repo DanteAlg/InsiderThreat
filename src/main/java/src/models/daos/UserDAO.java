@@ -57,6 +57,10 @@ public class UserDAO extends Sql implements Dao<User> {
 		return user;
 	}
 
+	/** 
+	 * Salva os usuarios no banco
+	 * @param d
+	 */
 	public void save(User u) throws SQLException {
 		this.openConnection();
 
@@ -87,10 +91,18 @@ public class UserDAO extends Sql implements Dao<User> {
 		pst.executeUpdate();
 	}
 
+	/** 
+	 * Atualiza as atividades de logon no banco de acordo com os dados informado no parametrp params
+	 * @param d, params
+	 */
 	public void update(User u, String[] params) {
 		this.openConnection();
     }
-     
+    
+	/** 
+	 * Deleta usuarios no banco
+	 * @param d
+	 */
     public void delete(User u) {
     	this.openConnection();
     }

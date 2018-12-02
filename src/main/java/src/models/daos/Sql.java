@@ -15,6 +15,9 @@ public class Sql {
 	public String dbUrl = "jdbc:postgresql://localhost/inside_threat";
 	protected Connection con;
 
+	/**
+	 * Abre a conexão com o banco
+	 */
 	protected void openConnection() {
 		if (con != null) return;
 		

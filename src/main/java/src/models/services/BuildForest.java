@@ -1,5 +1,8 @@
 package src.models.services;
-
+/**
+ * @author Andrecio Costa / Dante Alighieri
+ *
+ */
 import src.models.daos.*;
 
 import java.util.ArrayList;
@@ -9,8 +12,8 @@ import java.sql.SQLException;
 import src.models.*;
 
 public class BuildForest {
-	String start_time;
-	String end_time;
+	String startTime;
+	String endTime;
 	boolean userTree;
 	ArrayList<Node> forest;
 	ArrayList<Device> devices;
@@ -18,22 +21,26 @@ public class BuildForest {
 	ArrayList<Logon> logons;
 
 	public BuildForest(String start_at, String end_at, boolean ut) {
-		start_time = start_at;
-		end_time = end_at;
+		startTime = start_at;
+		endTime = end_at;
 		userTree = ut;
 		forest = new ArrayList<Node>();
 	}
 
+	/**
+	 * Recupera os objetos de todas as atividades num periodo te tempo
+	 * @return forest
+	 */
 	public ArrayList<Node> run() {
-		// Recupera os objetos de todas as atividades num periodo te tempo
+		
 		DeviceDAO dDAO = new DeviceDAO();
 		HttpDAO hDAO = new HttpDAO();
 		LogonDAO lDAO = new LogonDAO();
 
 		try {
-			devices = dDAO.betweenDates(start_time, end_time);
-			https = hDAO.betweenDates(start_time, end_time);
-			logons = lDAO.betweenDates(start_time, end_time);
+			devices = dDAO.betweenDates(startTime, endTime);
+			https = hDAO.betweenDates(startTime, endTime);
+			logons = lDAO.betweenDates(startTime, endTime);
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
@@ -43,11 +50,13 @@ public class BuildForest {
 		return forest;
 	}
 
+	/**
+	 * Percorrer cada objeto e procurar no banco o usuário
+	 * Adicionar o usuário num nó
+	 * No nó deste usuário adicionar a data
+	 */
 	private void buildUserNodes() {
-		// Percorrer cada objeto e procurar no banco o usuário
-		// Adicionar o usuário num nó
-		// No nó deste usuário adicionar a data
-
+		
 		for (Device d : devices)
 			setBuildNode("Device", d);
 		for (Http h : https)

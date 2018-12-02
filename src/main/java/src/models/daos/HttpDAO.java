@@ -55,6 +55,10 @@ public class HttpDAO extends Sql implements Dao<Http> {
 		return user;
 	}
 
+	/** 
+	 * Salva as atividades de logon no banco
+	 * @param d
+	 */
 	public void save(Http d) throws SQLException {
 		this.openConnection();
 
@@ -85,10 +89,18 @@ public class HttpDAO extends Sql implements Dao<Http> {
 		pst.executeUpdate();
 	}
 
+	/** 
+	 * Atualiza as atividades de Http no banco de acordo com os dados informado no parametrp params
+	 * @param d, params
+	 */
 	public void update(Http d, String[] params) {
 		this.openConnection();
     }
      
+	/** 
+	 * Deleta as atividades de logon no banco
+	 * @param d
+	 */
     public void delete(Http d) {
     	this.openConnection();
     }
