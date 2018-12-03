@@ -76,6 +76,6 @@ public class ChooseUserController {
     
     public void loadUsers(ArrayList<Node> n) {
     	this.forest = n;
-		//userSelect.getItems().add(teste);
+		//userSelect.getItems().add("teste");
     }
 }

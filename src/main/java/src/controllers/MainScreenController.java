@@ -65,6 +65,8 @@ public class MainScreenController {
 		BuildForest b = new BuildForest(startDate.getText(), endDate.getText(), false);
 		ArrayList<Node> forest = b.run();
 		
+		System.out.println(forest.size());
+		
 		try {
 			
 			FXMLLoader loader = new FXMLLoader();
