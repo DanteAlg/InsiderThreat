@@ -64,4 +64,8 @@ public class ChooseUserController {
     		stage.close();
     	}
     }
+    
+    public void carregarUsuários() {
+    	
+    }
 }

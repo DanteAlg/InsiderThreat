@@ -69,6 +69,8 @@ public class MainScreenController {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainScreenController.class.getResource("../views/ChooseUser.fxml"));
 			AnchorPane chooseUserScreen = (AnchorPane) loader.load();
+			ChooseUserController controle = new ChooseUserController();
+			controle.carregarUsuários();
 			
 			mainScreen.setCenter(chooseUserScreen);
 		} catch (IOException e) {
