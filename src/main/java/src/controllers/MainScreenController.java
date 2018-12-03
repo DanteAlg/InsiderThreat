@@ -78,7 +78,6 @@ public class MainScreenController {
 			e.printStackTrace();
 		}
 		
-		
 		//for (Node n : forest) {
 		//}
 	}
