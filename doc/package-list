@@ -1,1 +1,5 @@
 src.application
+src.controllers
+src.models
+src.models.daos
+src.models.services
