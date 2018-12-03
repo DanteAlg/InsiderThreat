@@ -14,11 +14,8 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-<<<<<<< HEAD
-=======
 import javafx.scene.control.TextField;
 import src.application.Main;
->>>>>>> 81da8868158158c7001091bd9eaa1e2f8d7e0c0d
 import javafx.event.ActionEvent;
 
 /**
@@ -31,8 +28,7 @@ public class MainScreenController {
 	private Main main;
 	private Stage newStage = new Stage();
 
-<<<<<<< HEAD
-    @FXML
+	@FXML
     private BorderPane mainScreen;
 
     @FXML
@@ -111,94 +107,6 @@ public class MainScreenController {
     		e.printStackTrace();
     	}
     }
-=======
-	@FXML
-	private BorderPane mainScreen;
 
-	@FXML
-	private MenuItem menuPerfisUsuarios;
-
-	@FXML
-	private TextField startDate;
-
-	@FXML
-	private TextField endDate;
-
-	@FXML
-	private MenuItem menuRankUsuarios;
-
-	@FXML
-	private MenuItem menuUsuario;
-
-	@FXML
-	private MenuItem menuCategoria;
-
-	/* Gera a árvore de usuários */
-	@FXML
-	void setBuildForest(ActionEvent event) {
-		BuildForest b = new BuildForest(startDate.getText(), endDate.getText(), false);
-		ArrayList<Node> forest = b.run();
-
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainScreenController.class.getResource("../views/ChooseUser.fxml"));
-			AnchorPane chooseUserScreen = (AnchorPane) loader.load();
-			
-			mainScreen.setCenter(chooseUserScreen);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		System.out.println("Tamanho da floresta de usuários: " + forest.size());
-	}
-
-	/* Carrega a tela de seleção do usuário (ChooseUser) */
-	@FXML
-	void actionMenuPerfisUsuarios(ActionEvent event) {
-
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainScreenController.class.getResource("../views/ChooseUser.fxml"));
-			AnchorPane chooseUserScreen = (AnchorPane) loader.load();
-
-			mainScreen.setCenter(chooseUserScreen);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/* Carrega a tela de ranking dos usuários */
-	@FXML
-	void actionMenuRankUsuarios(ActionEvent event) {
-		System.out.println("Menu Rank Usuarios ok");
-	}
-
-	@FXML
-	void actionMenuUsuario(ActionEvent event) {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainScreenController.class.getResource("../views/ChooseUser.fxml"));
-			AnchorPane chooseUserScreen = (AnchorPane) loader.load();
-
-			mainScreen.setCenter(chooseUserScreen);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	/* Carrega a tela de seleção do usuário (ChooseRole) */
-	@FXML
-	void actionMenuCategoria(ActionEvent event) {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(MainScreenController.class.getResource("../views/ChooseRole.fxml"));
-			AnchorPane chooseUserScreen = (AnchorPane) loader.load();
-
-			mainScreen.setCenter(chooseUserScreen);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
->>>>>>> 81da8868158158c7001091bd9eaa1e2f8d7e0c0d
-
+	
 }
