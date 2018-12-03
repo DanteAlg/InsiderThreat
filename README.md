@@ -22,6 +22,10 @@ $ cp properties/database.properties.example properties/database.properties
 
 2. Configure seu `db.username` e `db.password` no seu `properties/database.properties`.
 
+3. Importe o schema do banco de dados na pasta `docs`
+
+4. Rode o app via eclipse. 
+
 ## Referências
 
 - [Importar csv para postgresql](https://gist.github.com/nepsilon/f2937fe10fe8b0efc0cc)
