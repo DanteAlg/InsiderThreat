@@ -28,91 +28,8 @@ public class MainScreenController {
 
 	private Main main;
 	private Stage newStage = new Stage();
-<<<<<<< HEAD
 
-	@FXML
-    private BorderPane mainScreen;
 
-    @FXML
-    private MenuItem menuPerfisUsuarios;
-    
-    @FXML
-    private MenuItem menuRankUsuarios;
-
-    @FXML
-    private MenuItem menuUsuario;
-
-    @FXML
-    private MenuItem menuCategoria;
-
-      
-    /**
-     *  Carrega a tela de seleção do usuário (ChooseUser)
-     * @param event
-     */
-    @FXML
-    void actionMenuPerfisUsuarios(ActionEvent event) {
-    	
-    	try{
-    		FXMLLoader loader = new FXMLLoader();
-    	   	loader.setLocation(MainScreenController.class.getResource("../views/ChooseUser.fxml"));
-    	   	AnchorPane chooseUserScreen = (AnchorPane) loader.load();
-    	      	 	  	 
-    	   	mainScreen.setCenter(chooseUserScreen);    	   	
-    	}
-    	catch(IOException e) {
-    		e.printStackTrace();
-       	}
-    }
-
-    /**
-     *  Carrega a tela de ranking dos usuarios 
-     * @param event
-     */
-    @FXML
-    void actionMenuRankUsuarios(ActionEvent event) {
-    	System.out.println("Menu Rank Usuarios ok");
-    }
-
-    /**
-     *  Carrega a tela de escolha dos usuarios 
-     * @param event
-     */
-    @FXML
-    void actionMenuUsuario(ActionEvent event) {
-    	try{
-    		FXMLLoader loader = new FXMLLoader();
-    	   	loader.setLocation(MainScreenController.class.getResource("../views/ChooseUser.fxml"));
-    	   	AnchorPane chooseUserScreen = (AnchorPane) loader.load();
-    	      	 	  	 
-    	   	mainScreen.setCenter(chooseUserScreen);    	   	
-    	}
-    	catch(IOException e) {
-    		e.printStackTrace();
-    	}
-    }
-
-    /**
-     *  Carrega a tela de seleção de categoria
-     * @param event
-     */
-    @FXML
-    void actionMenuCategoria(ActionEvent event) {
-    	try{
-    		FXMLLoader loader = new FXMLLoader();
-    	   	loader.setLocation(MainScreenController.class.getResource("../views/ChooseRole.fxml"));
-    	   	AnchorPane chooseUserScreen = (AnchorPane) loader.load();
-    	      	 	  	 
-    	   	mainScreen.setCenter(chooseUserScreen);    	   	
-    	}
-    	catch(IOException e) {
-    		e.printStackTrace();
-    	}
-    }
-
-	
-=======
-    
 	@FXML
 	private BorderPane mainScreen;
 
@@ -162,5 +79,6 @@ public class MainScreenController {
 		//for (Node n : forest) {
 		//}
 	}
->>>>>>> f6b2b2c02415ac7bff41538f9f9be865946db8f8
+    
+  
 }
