@@ -71,16 +71,12 @@ public class MainScreenController {
 			loader.setLocation(MainScreenController.class.getResource("../views/ChooseUser.fxml"));
 			AnchorPane chooseUserScreen = (AnchorPane) loader.load();
 			ChooseUserController controle = new ChooseUserController();
-			System.out.println(forest.isEmpty());
-			controle.carregarUsuarios(forest);
+			controle.loadUsers(forest);
 			
 			mainScreen.setCenter(chooseUserScreen);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
-		//for (Node n : forest) {
-		//}
 	}
     
   

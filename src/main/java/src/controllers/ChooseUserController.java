@@ -1,11 +1,15 @@
 package src.controllers;
 
+import java.util.ArrayList;
+import src.models.Node;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.chart.BarChart;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import src.models.Node;
@@ -20,6 +24,7 @@ import javafx.event.ActionEvent;
  *
  */
 public class ChooseUserController {
+	private ArrayList<Node> forest;
 
     @FXML
     private AnchorPane ChooseUser;
@@ -32,6 +37,9 @@ public class ChooseUserController {
 
     @FXML
     private Button btnCancelar;
+    
+    @FXML
+    private BarChart userHistogram;
     
     /**
      * Pesquisa a existência do usuario, se não houver avisa a não existência desse no cadastro
@@ -66,8 +74,8 @@ public class ChooseUserController {
     	}
     }
     
-    public void carregarUsuarios(ArrayList<Node> forest) {
-    	String teste = "teste";
-    	userSelect.getItems().add(teste);
+    public void loadUsers(ArrayList<Node> n) {
+    	this.forest = n;
+		//userSelect.getItems().add(teste);
     }
 }
