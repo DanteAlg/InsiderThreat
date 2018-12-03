@@ -5,12 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import src.models.Node;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javafx.event.ActionEvent;
 /**
@@ -21,11 +22,11 @@ import javafx.event.ActionEvent;
 public class ChooseUserController {
 
     @FXML
-    private AnchorPane chooseUser;
+    private AnchorPane ChooseUser;
     
     @FXML
-    private TextField txtName;
-
+    private ChoiceBox<String> userSelect;
+    
     @FXML
     private Button btnOK;
 
@@ -38,7 +39,7 @@ public class ChooseUserController {
      */
     @FXML
     void actionBtnOk(ActionEvent event) {
-    	txtName.setText("");
+    	
     }
 
     /**
@@ -65,7 +66,8 @@ public class ChooseUserController {
     	}
     }
     
-    public void carregarUsuários() {
-    	
+    public void carregarUsuarios(ArrayList<Node> forest) {
+    	String teste = "teste";
+    	userSelect.getItems().add(teste);
     }
 }
