@@ -62,15 +62,16 @@ public class MainScreenController {
 	/* Gera a árvore de usuários */
 	@FXML
 	void setBuildForest(ActionEvent event) {
-		BuildForest b = new BuildForest(startDate.getText(), endDate.getText(), true);
+		BuildForest b = new BuildForest(startDate.getText(), endDate.getText(), false);
+		ArrayList<Node> forest = b.run();
 		
-
 		try {
-			ArrayList<Node> forest = b.run();
+			
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainScreenController.class.getResource("../views/ChooseUser.fxml"));
 			AnchorPane chooseUserScreen = (AnchorPane) loader.load();
 			ChooseUserController controle = new ChooseUserController();
+			System.out.println(forest.isEmpty());
 			controle.carregarUsuarios(forest);
 			
 			mainScreen.setCenter(chooseUserScreen);
